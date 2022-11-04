@@ -53,7 +53,8 @@
                                                 required autofocus>
                                         </div>
                                         <div class="form-group">
-                                            <select id="jurusan" name="jurusan" class="form-select  form-control-user">
+                                            <select id="jurusan" name="jurusan"
+                                                class="form-select py-3 form-control-user w-100" style="width:fi;">
                                                 <option value="DIV Komputasi Statistik">DIV Komputasi Statistik</option>
                                                 <option value="DIV Statistika">DIV Statistika</option>
                                                 <option value="DIII Statistika">DIII Statistika</option>
@@ -63,7 +64,7 @@
                                                 autofocus> -->
                                         </div>
                                     </div>
-                                    <div class="col-md-6 pl-2">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="date" class="form-control form-control-user"
                                                 name="tanggalLahir" placeholder="{{ __('Tanggal Lahir') }}"
