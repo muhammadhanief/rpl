@@ -20,132 +20,213 @@
 </div>
 @endif
 
-<div class="row">
 
-    <!-- Content Column -->
-    <div class="col-lg-6 mb-4">
 
-        <!-- Project Card Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-            </div>
-            <div class="card-body">
-                <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0"
-                        aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </div>
-        </div>
+<!-- Main Content -->
+<div id="content">
 
-        <!-- Color System -->
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <!-- <h1 class="h3 mb-4 text-gray-800">Home</h1> -->
+
         <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-primary text-white shadow">
+
+            <div class="col-lg-6">
+
+                <!-- Circle Buttons -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Data Diri</h6>
+                    </div>
                     <div class="card-body">
-                        Primary
-                        <div class="text-white-50 small">#4e73df</div>
+                        <table class="table">
+                            <tr>
+                                <th>Nama</th>
+                                <th>{{ Auth::user()->name }}</th>
+                            </tr>
+                            <tr>
+                                <th>NIM</th>
+                                <th>{{ Auth::user()->nim }}</th>
+                            </tr>
+                            <tr>
+                                <th>NIP</th>
+                                <th>{{ Auth::user()->nip }}</th>
+                            </tr>
+                            <tr>
+                                <th>Nomor Ponsel</th>
+                                <th>{{ Auth::user()->nomorPonsel }}</th>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th>{{ Auth::user()->email }}</th>
+                            </tr>
+                            <tr>
+                                <th>TTL</th>
+                                <th>{{ Auth::user()->tempatLahir }} {{ Auth::user()->tanggalLahir }}</th>
+                            </tr>
+                            <tr>
+                                <th>Jurusan</th>
+                                <th>{{ Auth::user()->jurusan }}</th>
+                            </tr>
+                            <tr>
+                                <th>Tahun Lulus</th>
+                                <th>{{ Auth::user()->tahunLulus }}</th>
+                            </tr>
+                            <tr>
+                                <th>Nickname</th>
+                                <th>{{ Auth::user()->nickname }}</th>
+                            </tr>
+                        </table>
+
+                        <!-- <img src="{{ Auth::user()->tanggalLahir }}" alt="..." class="img-thumbnail">
+                        <img src="{{ Auth::user()->tempatLahir }}" alt="..." class="img-thumbnail"> -->
+
+                        <!-- Circle Buttons (Default) -->
+                        <!-- <div class="mb-2">
+                                        <code>.btn-circle</code>
+                                    </div>
+                                    <a href="#" class="btn btn-primary btn-circle">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-circle">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-circle">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-circle">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </a> -->
+                        <!-- Circle Buttons (Small) -->
+                        <!-- <div class="mt-4 mb-2">
+                                        <code>.btn-circle .btn-sm</code>
+                                    </div>
+                                    <a href="#" class="btn btn-primary btn-circle btn-sm">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-circle btn-sm">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-circle btn-sm">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-circle btn-sm">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a> -->
+                        <!-- Circle Buttons (Large) -->
+                        <!-- <div class="mt-4 mb-2">
+                                        <code>.btn-circle .btn-lg</code>
+                                    </div>
+                                    <a href="#" class="btn btn-primary btn-circle btn-lg">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-circle btn-lg">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-info btn-circle btn-lg">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-warning btn-circle btn-lg">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-danger btn-circle btn-lg">
+                                        <i class="fas fa-trash"></i>
+                                    </a> -->
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-success text-white shadow">
+
+                <!-- Brand Buttons -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Aksi</h6>
+                    </div>
                     <div class="card-body">
-                        Success
-                        <div class="text-white-50 small">#1cc88a</div>
+                        <a href="#" class="btn btn-primary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-flag"></i>
+                            </span>
+                            <span class="text">Pengambilan Ijazah</span>
+                        </a>
+                        <div class="my-2"></div>
+                        <a href="#" class="btn btn-success btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Legalisir Ijazah</span>
+                        </a>
+                        <div class="my-2"></div>
+                        <a href="#" class="btn btn-info btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-info-circle"></i>
+                            </span>
+                            <span class="text">Legalisir Transkripsi</span>
+                        </a>
+                        <!-- <p>You can create more custom buttons by adding a new color variable in the
+                                        <code>_variables.scss</code> file and then using the Bootstrap button variant mixin to create a new style, as demonstrated in the <code>_buttons.scss</code> file.
+                                    </p>
+                                    <a href="#" class="btn btn-google btn-block"><i class="fab fa-google fa-fw"></i>
+                                        .btn-google</a>
+                                    <a href="#" class="btn btn-facebook btn-block"><i
+                                            class="fab fa-facebook-f fa-fw"></i> .btn-facebook</a> -->
+
                     </div>
                 </div>
+
             </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                        Info
-                        <div class="text-white-50 small">#36b9cc</div>
-                    </div>
+            @if (isset(\Auth::user()->nim) == FALSE)
+            <div class="col-lg-6">
+                <div class="alert alert-danger alert-dismissible fade show card-shadow mb-4">
+                    <h4 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Akun anda belum terverifikasi
+                    </h4>
+                    <p>Silahkan selesaikan pendaftaran akun.</p>
+                    <hr>
+                    <a href="{{ route('profile') }}" class="btn btn-secondary btn-icon-split"
+                        style="background-color:#2285ba">
+                        <span class="icon text-white-50">
+                            <i class='fas fa-external-link-alt'></i>
+                        </span>
+                        <span class="text">Verifikasi Sekarang</span>
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                        Warning
-                        <div class="text-white-50 small">#f6c23e</div>
-                    </div>
+            @else
+            <div class="col-lg-6">
+                <div class="alert alert-info alert-dismissible fade show card-shadow mb-4">
+                    <h4 class="info-heading"><i class="fas fa-exclamation-triangle"></i> Akun anda sudah terverifikasi
+                    </h4>
+                    <p>Anda bisa lanjut ke menu permohonan</p>
+
+                    <!-- <hr> -->
+                    <!-- <a href="{{ route('profile') }}" class="btn btn-secondary btn-icon-split"
+                        style="background-color:#2285ba">
+                        <span class="icon text-white-50">
+                            <i class='fas fa-external-link-alt'></i>
+                        </span>
+                        <span class="text">Verifikasi Sekarang</span>
+                    </a> -->
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                        Danger
-                        <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                        Secondary
-                        <div class="text-white-50 small">#858796</div>
-                    </div>
-                </div>
-            </div>
+            @endif
+
+
+
         </div>
 
     </div>
+    <!-- /.container-fluid -->
 
-    <div class="col-lg-6 mb-4">
-
-        <!-- Illustrations -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-            </div>
-            <div class="card-body">
-                <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                        src="{{ asset('img/svg/undraw_editable_dywm.svg') }}" alt="">
-                </div>
-                <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
-                        href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images
-                    that you can use completely free and without attribution!</p>
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw →</a>
-            </div>
-        </div>
-
-        <!-- Approach -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-            </div>
-            <div class="card-body">
-                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor
-                    page performance. Custom CSS classes are used to create custom components and custom utility
-                    classes.</p>
-                <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework,
-                    especially the utility classes.</p>
-            </div>
-        </div>
-
-    </div>
 </div>
+<!-- End of Main Content -->
+
+
+</html>
 @endsection

@@ -20,16 +20,16 @@ class UserSeeder extends Seeder
         // for ($i = 0; $i < 10; $i++) {
         # code...
         DB::table('users')->insert([
-            'name' => 'Muhammad Hanief',
+            'name' => 'Muhammad Abdi',
             'nip' => '197020292005',
-            'nim' => '222011686',
-            'jurusan' => 'DIV Komputasi Statistik',
+            'nim' => '222011666',
+            'jurusan' => 'DIII Statistika',
             'tahunLulus' => '2024',
             'tempatLahir' => 'Padang',
             'tanggalLahir' => '2001-08-25',
-            'nomorPonsel' => '085376470953',
+            'nomorPonsel' => '085376470952',
             // 'email' => Str::random(10) . '@gmail.com',
-            'email' => 'haniefm19@gmail.com',
+            'email' => '222011666@gmail.com',
             'password' => Hash::make('hanif12345'),
         ]);
         // }

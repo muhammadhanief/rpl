@@ -24,19 +24,21 @@ class CreateUsersTable extends Migration
             // $table->timestamps();
             $table->id();
             $table->string('name');
-            $table->string('nip');
-            $table->string('nim');
-            $table->string('jurusan');
-            $table->string('tahunLulus');
-            $table->string('tempatLahir');
-            $table->string('tanggalLahir');
-            $table->string('nomorPonsel');
+            $table->string('nip')->nullable();
+            $table->string('nim')->nullable();
+            $table->string('jurusan')->nullable();
+            $table->string('tahunLulus')->nullable();
+            $table->string('tempatLahir')->nullable();
+            $table->string('tanggalLahir')->nullable();
+            $table->string('nomorPonsel')->nullable();
+            $table->string('github_id')->nullable();
             $table->string('email')->unique();
             // $table->string('skpenempatan1bps');
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            // $table->string('social_id');
         });
     }
 

@@ -20,6 +20,7 @@
 </div>
 @endif
 
+@if (isset(\Auth::user()->nim) == TRUE)
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -40,8 +41,8 @@
                                 <th>{{ Auth::user()->name }}</th>
                             </tr>
                             <tr>
-                                <th>ID</th>
-                                <th>{{ Auth::user()->id }}</th>
+                                <th>NIM</th>
+                                <th>{{ Auth::user()->nim }}</th>
                             </tr>
                             <tr>
                                 <th>NIP</th>
@@ -130,20 +131,32 @@
                         <br>
                         <p class="ms-auto">Surat Permohonan Legalisir <br><a
                                 href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf"
-                                target=”_blank” class="fa fa-download" aria-hidden="true">Unduh contoh di sini</a></p>
+                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
+                                    class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span></a></p>
 
                         <input class="form-control" type="file" id="formFile"> <br>
                         <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
                         <p class="ms-auto">Surat Permohonan Izin Belajar yang
                             Disetujui oleh Eselon II
                             <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf"
-                                target=”_blank” class="fa fa-download" aria-hidden="true">Unduh contoh di sini</a>
+                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"> <span
+                                    class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span></a>
                         </p>
                         <input class="form-control" type="file" id="formFile"> <br>
                         <p class="ms-auto">Surat Permohonan Izin Belajar yang
                             Disetujui oleh Kepala Pusdiklat
                             <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf"
-                                target=”_blank” class="fa fa-download" aria-hidden="true">Unduh contoh di sini</a>
+                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
+                                    class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span></a>
                         </p>
                         <input class="form-control" type="file" id="formFile"> <br>
 
@@ -165,4 +178,6 @@
             </div>
     </form>
 </div>
+@endif
+
 @endsection

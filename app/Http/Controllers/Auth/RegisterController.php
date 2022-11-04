@@ -55,9 +55,10 @@ class RegisterController extends Controller
             // 'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'nip' => ['required', 'integer'],
-            'nomorPonsel' => ['required', 'numeric'],
-            // 'skpenempatan1bps' => ['required'],
+            'nip' => ['required', 'numeric', 'digits:18'],
+            'nim' => ['required', 'string'],
+            'nomorPonsel' => ['required', 'numeric', 'digits_between:11,13'],
+            'tahunLulus' => ['required', 'numeric', 'digits:4']
         ]);
     }
 

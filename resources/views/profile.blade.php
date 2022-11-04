@@ -29,12 +29,12 @@
 
         <div class="card shadow mb-4">
             <div class="card-profile-image mt-4">
-                <figure class="rounded-circle avatar avatar font-weight-bold"
+                <!-- <figure class="rounded-circle avatar avatar font-weight-bold"
                     style="font-size: 60px; height: 180px; width: 180px;" data-initial="{{ Auth::user()->name[0] }}">
-                </figure>
+                </figure> -->
+                <img class="" src="{{ Auth::user()->tanggalLahir }}" alt="...">
             </div>
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center">
@@ -42,7 +42,9 @@
                             <p>Administrator</p>
                         </div>
                     </div>
+
                 </div>
+
 
                 <div class="row">
                     <div class="col-md-4">
@@ -96,28 +98,27 @@
                                         placeholder="Name" value="{{ old('name', Auth::user()->name) }}">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="form-group focused">
+                            <!-- <div class="col-lg-6"> -->
+                            <!-- <div class="form-group focused">
                                         <label class="form-control-label" for="last_name">Last name</label>
                                         <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last name" value="{{ old('last_name', Auth::user()->last_name) }}">
                                     </div> -->
-                            </div>
-                        </div>
+                            <!-- </div> -->
 
-                        <div class="row">
-                            <div class="col-lg-12">
+
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="email">Email address<span
                                             class="small text-danger">*</span></label>
-                                    <input readonly type="email" id="email" class="form-control" name="email"
+                                    <input readonly type="email" id="email" name="email" class="form-control"
                                         placeholder="example@example.com"
                                         value="{{ old('email', Auth::user()->email) }}">
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- <div class="row">
-                            <div class="col-lg-12">
+
+
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nip">NIP<span
                                             class="small text-danger">*</span></label>
@@ -125,43 +126,95 @@
                                         value="{{ old('nip', Auth::user()->nip) }}">
                                 </div>
                             </div>
-                        </div> -->
 
-                        <!-- <div class="row">
-                            <div class="col-lg-12">
+
+
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="nim">NIM<span
                                             class="small text-danger">*</span></label>
-                                    <input type="text" id="nip" class="form-control" name="nim" placeholder=""
+                                    <input type="text" id="nim" class="form-control" name="nim" placeholder=""
                                         value="{{ old('nim', Auth::user()->nim) }}">
                                 </div>
                             </div>
-                        </div> -->
 
-                        <!-- <div class="row">
-                            <div class="col-lg-12">
+
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nim">NIM<span
+                                    <label class="form-control-label" for="jurusan">Jurusan<span
                                             class="small text-danger">*</span></label>
-                                    <input type="text" id="nip" class="form-control" name="nim" placeholder=""
-                                        value="{{ old('nim', Auth::user()->nim) }}">
+                                    <!-- <input type="text" id="jurusan" class="form-control" name="jurusan" placeholder=""
+                                    value="{{ old('jurusan', Auth::user()->jurusan) }}"> -->
+                                    <br>
+                                    <select id="jurusan" name="jurusan" class="form-select form-control-user"
+                                        value="{{ old('jurusan', Auth::user()->jurusan) }}">
+                                        <option value="DIV Komputasi Statistik">DIV Komputasi Statistik</option>
+                                        <option value="DIV Statistika">DIV Statistika</option>
+                                        <option value="DIII Statistika">DIII Statistika</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div> -->
 
-                        <div class="row">
-                            <div class="col-lg-4">
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tahunLulus">Tahun Lulus<span
+                                            class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="tahunLulus"
+                                        value="{{ old('tahunLulus', Auth::user()->tahunLulus) }}" required>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tempatLahir">Tempat Lahir<span
+                                            class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="tempatLahir"
+                                        value="{{ old('tempatLahir', Auth::user()->tempatLahir) }}" required>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tanggalLahir">Tanggal Lahir<span
+                                            class="small text-danger">*</span></label>
+                                    <input type="date" class="form-control form-control-user" name="tanggalLahir"
+                                        value="{{ old('tanggalLahir', Auth::user()->tanggalLahir) }}" required
+                                        autofocus>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="nomorPonsel">Nomor Ponsel<span
+                                            class="small text-danger">*</span></label>
+                                    <input type="text" class="form-control form-control-user" name="nomorPonsel"
+                                        value="{{ old('nomorPonsel', Auth::user()->nomorPonsel) }}" required>
+                                </div>
+                            </div>
+
+
+
+                            <!-- <div class="row">
+                                <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="current_password">Current password</label>
                                     <input type="password" id="current_password" class="form-control"
-                                        name="current_password" placeholder="Current password">
+                                    name="current_password" placeholder="Current password">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="new_password">New password</label>
                                     <input type="password" id="new_password" class="form-control" name="new_password"
-                                        placeholder="New password">
+                                    placeholder="New password">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -171,17 +224,19 @@
                                         name="password_confirmation" placeholder="Confirm password">
                                 </div>
                             </div>
+                        </div> -->
+                            <div class="col-6 px-2 pt-4 mt-2">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <button type="submit" class="btn btn-primary">Save
+                                            Changes</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Button -->
-                    <div class="pl-lg-4">
-                        <div class="row">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                            </div>
-                        </div>
-                    </div>
                 </form>
 
             </div>
