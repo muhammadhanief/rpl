@@ -77,12 +77,6 @@
                                             {{ __('Login with Google') }}
                                         </a>
 
-                                        <a class="btn btn-outline-info btn-block btn-user"
-                                            href="{{ url('auth/github') }}"><img
-                                                src="https://img.icons8.com/ios-glyphs/20/000000/github.png">
-                                            {{ __('Login with Github') }}
-                                        </a>
-
                                     </div>
 
                                 </form>
