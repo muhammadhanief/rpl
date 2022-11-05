@@ -67,10 +67,10 @@
                                             </select>
                                         </div>
                                         <hr>
-                                        <div class="form-group">
+                                        <div class="form-group py-1">
                                             <label class="font-weight-bold">SK Atasan BPS</label>
-                                            <input type="file" class="form-control-user" name="skatasanbps"
-                                                placeholder=" {{ __('SK Atasan BPS') }}"
+                                            <input type="file" class="form-control form-control-user py-2"
+                                                name="skatasanbps" placeholder=" {{ __('SK Atasan BPS') }}"
                                                 value="{{ old('skatasanbps') }}" required>
                                         </div>
                                     </div>
@@ -116,10 +116,10 @@
                                         <hr>
                                         <p></p>
 
-                                        <div class="form-group">
+                                        <div class="form-group py-1">
                                             <label class="font-weight-bold text-center">SK Penempatan 1 BPS</label>
-                                            <input type="file" class="form-control-user" name="skpenempatan1bps"
-                                                placeholder=" {{ __('SK Penempatan 1 BPS') }}"
+                                            <input type="file" class="form-control form-control-user pt-2"
+                                                name="skpenempatan1bps" placeholder=" {{ __('SK Penempatan 1 BPS') }}"
                                                 value="{{ old('skpenempatan1bps') }}" required>
                                         </div>
 

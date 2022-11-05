@@ -155,7 +155,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="jeniskelamin">jeniskelamin<span
+                                    <label class="form-control-label" for="jeniskelamin">Jenis Kelamin<span
                                             class="small text-danger">*</span></label>
                                     <br>
                                     <select id="jeniskelamin" name="jeniskelamin" class="form-select form-control-user"
