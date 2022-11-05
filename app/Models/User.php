@@ -29,6 +29,7 @@ class User extends Authenticatable
         'nomorPonsel',
         'email',
         'password',
+        'jeniskelamin',
 
         // 'titleskpenempatan1bps',
         'skpenempatan1bps_path',

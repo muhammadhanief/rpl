@@ -26,11 +26,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('nip')->nullable();
             $table->string('nim')->nullable();
-            $table->string('jurusan')->nullable();
+            $table->enum('jurusan', ['D-IV Komputasi Statistik', 'D-IV Statistika', 'D-III Statistika'])->nullable();
             $table->string('tahunLulus')->nullable();
             $table->string('tempatLahir')->nullable();
             $table->string('tanggalLahir')->nullable();
             $table->string('nomorPonsel')->nullable();
+            $table->enum('jeniskelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('github_id')->nullable();
             $table->string('email')->unique();
             // $table->string('skpenempatan1bps');

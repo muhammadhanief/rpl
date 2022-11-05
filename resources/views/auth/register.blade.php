@@ -58,11 +58,12 @@
                                                 required autofocus>
                                         </div>
                                         <div class="form-group">
-                                            <select id="jurusan" name="jurusan"
+                                            <select id="jurusan" name="jurusan" aria-placeholder="{{ __('Jurusan') }}"
                                                 class="form-select form-control-user w-100 py-3">
-                                                <option value="DIV Komputasi Statistik">DIV Komputasi Statistik</option>
-                                                <option value="DIV Statistika">DIV Statistika</option>
-                                                <option value="DIII Statistika">DIII Statistika</option>
+                                                <option value="D-IV Komputasi Statistik">D-IV Komputasi Statistik
+                                                </option>
+                                                <option value="D-IV Statistika">D-IV Statistika</option>
+                                                <option value="D-III Statistika">D-III Statistika</option>
                                             </select>
                                         </div>
                                         <hr>
@@ -106,6 +107,7 @@
                                         </div>
                                         <div class="form-group">
                                             <select id="jeniskelamin" name="jeniskelamin"
+                                                aria-placeholder="{{ __('Jenis Kelamin') }}"
                                                 class="form-select form-control-user w-100 py-3">
                                                 <option value="Laki-Laki">Laki-Laki</option>
                                                 <option value="Perempuan">Perempuan</option>
