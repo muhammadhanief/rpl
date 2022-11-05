@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->enum('jurusan', ['D-IV Komputasi Statistik', 'D-IV Statistika', 'D-III Statistika'])->nullable();
             $table->string('tahunLulus')->nullable();
             $table->string('tempatLahir')->nullable();
-            $table->string('tanggalLahir')->nullable();
+            $table->date('tanggalLahir')->nullable();
             $table->string('nomorPonsel')->nullable();
             $table->enum('jeniskelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('github_id')->nullable();
