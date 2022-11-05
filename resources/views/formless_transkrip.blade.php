@@ -83,29 +83,28 @@
                                             placeholder="{{ __('Jurusan') }}" value="{{ old('jurusan') }}" required
                                             autofocus> -->
                         </div>
-                        <form class="navbar-search">
+                        <!-- <form class="navbar-search"> -->
 
-                            <!-- Jika opsi yang dipilih nomer 4 -->
-                            <!-- <div> Alamat Pengiriman
+                        <!-- Jika opsi yang dipilih nomer 4 -->
+                        <!-- <div> Alamat Pengiriman
                                             <div class="input-group">
                                                 <input type="text" class="form-control bg-light border-0 small"
                                                     placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                                             </div>
                                         </div> -->
 
-                            <!-- Jika opsi yang dipilih nomer 1 -->
-                            <!-- <div> Email 
+                        <!-- Jika opsi yang dipilih nomer 1 -->
+                        <!-- <div> Email 
                                             <div class="input-group">
                                                 <input type="text" class="form-control bg-light border-0 small"
                                                     placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                                             </div>
                                         </div> -->
-                        </form>
+                        <!-- </form> -->
 
                     </div>
 
                 </div>
-
             </div>
 
             <div class="col-lg-6">
@@ -117,14 +116,36 @@
                         <!-- Wajib -->
                         <b>Dokumen Wajib</b><br>
                         <br>
-                        <p class="ms-auto">Surat Permohonan Legalisir <br><a
-                                href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf"
-                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
-                                    class="icon text-light">
-                                    <i class='fas fa-download'></i>
-                                </span>
-                                <span class="text">Unduh Contoh</span></a></p>
+                        <p class="mb-1">Surat Permohonan Legalisir
+                        </p>
+                        <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank”
+                            class="btn btn-sm btn-primary btn-icon-split mb-2" aria-hidden="true"><span
+                                class="icon text-light">
+                                <i class='fas fa-download'></i>
+                            </span>
+                            <span class="text">Unduh Contoh</span></a>
 
+                        <input class="form-control" type="file" id="formFile"> <br>
+                        <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
+                        <p class="mb-1">Surat Permohonan Izin Belajar yang
+                            Disetujui oleh Eselon II
+                        </p>
+                        <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf"
+                            target=”_blank” class="btn btn-sm btn-primary btn-icon-split mb-2" aria-hidden="true"> <span
+                                class="icon text-light">
+                                <i class='fas fa-download'></i>
+                            </span>
+                            <span class="text">Unduh Contoh</span></a>
+                        <input class="form-control" type="file" id="formFile"> <br>
+                        <p class="mb-1">Surat Permohonan Izin Belajar yang
+                            Disetujui oleh Kepala Pusdiklat
+                        </p>
+                        <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf"
+                            target=”_blank” class="btn btn-sm btn-primary btn-icon-split mb-2" aria-hidden="true"><span
+                                class="icon text-light">
+                                <i class='fas fa-download'></i>
+                            </span>
+                            <span class="text">Unduh Contoh</span></a>
                         <input class="form-control" type="file" id="formFile"> <br>
 
                         <!-- Hanya untuk Diambil langsung oleh Orang lain -->
@@ -132,21 +153,18 @@
                                         <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx">Unduh</a>
                                         <input class="form-control" type="file" id="formFile">
                                     </p> -->
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-check"></i>&nbsp;Kirim
+                            </button> &nbsp;
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-times"></i>&nbsp;Batal
+                            </button>
+                        </div>
 
-                        </p>
                     </div>
                 </div>
-                <div class="card shadow mb-4">
-                    <div class="card-header d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check"></i>&nbsp;Kirim
-                        </button> &nbsp;
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-times"></i>&nbsp;Batal
-                        </button>
-                    </div>
 
-                </div>
             </div>
     </form>
 </div>

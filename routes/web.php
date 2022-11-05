@@ -27,6 +27,36 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/alumniadd', function () {
+    return view('alumniadd');
+});
+
+Route::get('/alumnidetail', function () {
+    return view('alumnidetail');
+});
+
+Route::get('/formless/ijazah', function () {
+    return view('formless_ijazah');
+});
+Route::get('/formless/transkrip', function () {
+    return view('formless_transkrip');
+});
+Route::get('/verifless/ijazah', function () {
+    return view('verifless_ijazah');
+});
+Route::get('/verifless/transkrip', function () {
+    return view('verifless_transkrip');
+});
+Route::get('/verifmore/ijazahtranskrip', function () {
+    return view('verifmore_ijazah_transkrip');
+});
+Route::get('/formmore/ijazahtranskrip', function () {
+    return view('formmore_ijazah_transkrip');
+});
+
+
+
+
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::put('/profile', 'ProfileController@update')->name('profile.update');

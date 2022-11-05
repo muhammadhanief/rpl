@@ -3,7 +3,7 @@
 @section('main-content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Formulir Pengajuan') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Halaman Verifikasi Transkrip') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -86,37 +86,26 @@
                         <form class="navbar-search">
 
                             <!-- Jika opsi yang dipilih nomer 4 -->
-                            <!-- <div> Alamat Pengiriman
-                                            <div class="input-group">
-                                                <input type="text" class="form-control bg-light border-0 small"
-                                                    placeholder="" aria-label="Search" aria-describedby="basic-addon2">
-                                            </div>
-                                        </div> -->
+                            <div> Alamat Pengiriman (Opsi4)
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder=""
+                                        aria-label="Search" aria-describedby="basic-addon2">
+                                </div>
+                            </div>
 
                             <!-- Jika opsi yang dipilih nomer 1 -->
-                            <!-- <div> Email 
-                                            <div class="input-group">
-                                                <input type="text" class="form-control bg-light border-0 small"
-                                                    placeholder="" aria-label="Search" aria-describedby="basic-addon2">
-                                            </div>
-                                        </div> -->
+                            <div> Email (Opsi1)
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder=""
+                                        aria-label="Search" aria-describedby="basic-addon2">
+                                </div>
+                            </div>
                         </form>
 
                     </div>
 
                 </div>
 
-                <div class="card shadow mb-4">
-                    <div class="card-header d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check"></i>&nbsp;Terima
-                        </button> &nbsp;
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-times"></i>&nbsp;Tolak
-                        </button>
-                    </div>
-
-                </div>
             </div>
 
             <div class="col-lg-6">
@@ -128,39 +117,54 @@
                         <!-- Wajib -->
                         <b>Dokumen Wajib</b><br>
                         <br>
-                        
-                        <p class="ms-auto">Surat Permohonan Legalisir <br><a
-                                href="Mengarah ke filepath surat"
+                        <p class="ms-auto">Surat Permohonan Legalisir <br><a href="Mengarah ke filepath surat"
                                 target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
                                     class="icon text-light">
                                     <i class='fa fa-eye'></i>
                                 </span>
                                 <span class="text">Lihat File</span></a></p>
-                        
-                        <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
-                        <b>Dokumen Bahasa Inggris</b> (Opsional)<br>
-                                    <p>Bukti Pendaftaran Kampus Luar Negeri
-                                            <a
-                                        href="Mengarah ke filepath surat"
-                                        target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
-                                            class="icon text-light">
-                                            <i class='fa fa-eye'></i>
-                                        </span>
-                                        <span class="text">Lihat File</span></a></p>
-                                    </p>
+
+                        <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
+                        <p class="ms-auto">Surat Permohonan Izin Belajar yang
+                            Disetujui oleh Eselon II
+                            <a href="Mengarah ke filepath surat" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"> <span
+                                    class="icon text-light">
+                                    <i class='fa fa-eye'></i>
+                                </span>
+                                <span class="text">Lihat File</span></a>
+                        </p>
+
+                        <p class="ms-auto">Surat Permohonan Izin Belajar yang
+                            Disetujui oleh Kepala Pusdiklat
+                            <a href="Mengarah ke filepath surat" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
+                                    class="icon text-light">
+                                    <i class='fa fa-eye'></i>
+                                </span>
+                                <span class="text">Lihat File</span></a>
+                        </p>
 
                         <!-- Hanya untuk Diambil langsung oleh Orang lain -->
-                        <!-- <p>Surat Kuasa<br>
-                                        <a
-                                        href="Mengarah ke filepath surat"
-                                        target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
-                                            class="icon text-light">
-                                            <i class='fa fa-eye'></i>
-                                        </span>
-                                        <span class="text">Lihat File</span></a></p>
-                                    </p> -->
-
+                        <p class="font-weight-bold font-semibold">Surat Kuasa (Hanya untuk Diambil langsung oleh Orang
+                            lain)<br>
+                            <a href="Mengarah ke filepath surat" target=”_blank”
+                                class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true"><span
+                                    class="icon text-light">
+                                    <i class='fa fa-eye'></i>
+                                </span>
+                                <span class="text">Lihat File</span></a>
                         </p>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-check"></i>&nbsp;Kirim
+                            </button> &nbsp;
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fa fa-times"></i>&nbsp;Batal
+                            </button>
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -168,4 +172,3 @@
     </form>
 </div>
 @endsection
-
