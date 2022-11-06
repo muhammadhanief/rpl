@@ -149,8 +149,7 @@
                     </h4>
                     <p>Silahkan selesaikan pendaftaran akun.</p>
                     <hr>
-                    <a href="{{ route('profile') }}" class="btn btn-secondary btn-icon-split"
-                        style="background-color:#2285ba">
+                    <a href="{{ route('profile') }}" class="btn btn-secondary btn-icon-split" style="background-color:#2285ba">
                         <span class="icon text-white-50">
                             <i class='fas fa-external-link-alt'></i>
                         </span>
