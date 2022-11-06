@@ -71,7 +71,8 @@
                         </table>
                         <p>Metode Pengambilan</p>
                         <div class="form-group">
-                            <select id="metodePengambilan" name="metodePengambilan" class="form-select form-control bg-light border-0 small">
+                            <select id="metodePengambilan" name="metodePengambilan"
+                                class="form-select form-control bg-light border-0 small">
                                 <option value="1">Diemail ke alamat pemohon dalam bentuk hasil scan</option>
                                 <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
                                 <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
@@ -88,37 +89,39 @@
                             <!-- Jika opsi yang dipilih nomer 4 -->
                             <div id="alamat-pengiriman"> Alamat Pengiriman
                                 <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder=""
+                                        aria-label="Search" aria-describedby="basic-addon2" required>
                                 </div>
                             </div>
 
                             <!-- Jika opsi yang dipilih nomer 1 -->
                             <div id="email-pengiriman"> Email
                                 <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder=""
+                                        aria-label="Search" aria-describedby="basic-addon2" required>
                                 </div>
                             </div>
                         </form>
                         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
                         <script>
-                            $(document).ready(function() {
-                                $("#alamat-pengiriman").hide();
-                            });
+                        $(document).ready(function() {
+                            $("#alamat-pengiriman").hide();
+                        });
 
-                            $('#metodePengambilan').change(function() {
-                                val = $(this).val();
-                                if (val == 3) {
-                                    $("#alamat-pengiriman").show();
-                                    $("#email-pengiriman").hide();
-                                } else if (val == 1) {
-                                    $("#alamat-pengiriman").hide();
-                                    $("#email-pengiriman").show();
-                                } else {
-                                    $("#alamat-pengiriman").hide();
-                                    $("#email-pengiriman").hide();
-                                }
-                            });
+                        $('#metodePengambilan').change(function() {
+                            val = $(this).val();
+                            if (val == 3) {
+                                $("#alamat-pengiriman").show();
+                                $("#email-pengiriman").hide();
+                            } else if (val == 1) {
+                                $("#alamat-pengiriman").hide();
+                                $("#email-pengiriman").show();
+                            } else {
+                                $("#alamat-pengiriman").hide();
+                                $("#email-pengiriman").hide();
+                            }
+                        });
                         </script>
                     </div>
 
@@ -147,7 +150,8 @@
                         <b>Dokumen Wajib</b><br>
                         <br>
                         <p class="ms-auto">Surat Permohonan Legalisir
-                            <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf"
+                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>
@@ -157,7 +161,8 @@
                         <input class="form-control" type="file" id="formFile"> <br>
                         <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
                         <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Eselon II
-                            <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf"
+                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>
@@ -166,7 +171,8 @@
                         </p>
                         <input class="form-control" type="file" id="formFile"> <br>
                         <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
-                            <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                            <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf"
+                                target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                                 <span class="icon text-light">
                                     <i class='fas fa-download'></i>
                                 </span>

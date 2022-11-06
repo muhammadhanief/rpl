@@ -22,6 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-monitoring.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
@@ -59,7 +60,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                {{ __('Menu Admin') }}
+                {{ __('Menu Alumni') }}
             </div>
 
 
@@ -81,8 +82,8 @@
             </li>
 
             <!-- Nav Item - Admin -->
-            <li class="nav-item {{ Nav::isRoute('manajemen_alumni') }}">
-                <a class="nav-link" href="{{ route('manajemen_alumni') }}">
+            <li class="nav-item {{ Nav::isRoute('admin') }}">
+                <a class="nav-link" href="{{ route('admin') }}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>{{ __('Daftar Permohonan') }}</span>
                 </a>
