@@ -88,14 +88,14 @@
                             <!-- Jika opsi yang dipilih nomer 4 -->
                             <div id="alamat-pengiriman"> Alamat Pengiriman
                                 <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2" required>
                                 </div>
                             </div>
 
                             <!-- Jika opsi yang dipilih nomer 1 -->
                             <div id="email-pengiriman"> Email
                                 <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2" required>
                                 </div>
                             </div>
                         </form>
@@ -105,7 +105,6 @@
                             $(document).ready(function() {
                                 $("#alamat-pengiriman").hide();
                             });
-
                             $('#metodePengambilan').change(function() {
                                 val = $(this).val();
                                 if (val == 4) {

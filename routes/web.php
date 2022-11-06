@@ -27,12 +27,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/alumniadd', function () {
-    return view('alumniadd');
+Route::get('/admin/alumniadd', function () {
+    return view('admin.alumniadd');
 });
 
-Route::get('/alumnidetail', function () {
-    return view('alumnidetail');
+Route::get('/admin/alumnidetail', function () {
+    return view('admin.alumnidetail');
 });
 
 Route::get('/formless/ijazah', function () {
@@ -53,7 +53,18 @@ Route::get('/verifmore/ijazahtranskrip', function () {
 Route::get('/formmore/ijazahtranskrip', function () {
     return view('formmore_ijazah_transkrip');
 });
-
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+Route::get('/admin/manajemenalumni', function () {
+    return view('admin.manajemen_alumni');
+})->name('manajemen_alumni');
+Route::get('/alumni/daftarpermohonan', function () {
+    return view('alumni.daftar_permohonan_alumni');
+});
+Route::get('/alumni/detailpermohonan', function () {
+    return view('alumni.detail_permohonan');
+});
 
 
 
