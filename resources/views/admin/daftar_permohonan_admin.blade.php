@@ -2,8 +2,8 @@
 
 @section('main-content')
 
-
-
+<!-- import model user -->
+@php use App\Models\User; @endphp
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -42,18 +42,61 @@
                             <th>Tanggal Pengajuan</th>
                             <th>Jenis Pengajuan</th>
                             <th>Status</th>
+                            <th>Lampiran</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($data as $item)
                         <tr>
+                            <td>{{ User::find($item->user_id)->name }}</td>
+                            <td>{{ User::find($item->user_id)->tahunLulus }}</td>
+                            <td>{{ User::find($item->user_id)->jurusan }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</td>
+                            <td>{{ $item->jenis }}</td>
+                            <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
+                            <td>@if($item->status == 1)
+                                <div class="p-2 bg-secondary text-light rounded">Pengajuan</div>
+                                @elseif($item->status == 2)
+                                <div class="p-2 bg-success text-light rounded">Disetujui</div>
+                                @elseif($item->status == 3)
+                                <div class="p-2 bg-danger text-light rounded">Ditolak</div>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($item->file_permohonan != NULL)
+                                <a href="{{ asset('storage/'.$item->file_permohonan) }}" target="_blank" class="btn btn-primary btn-sm">Permohonan</a>
+                                @endif
+                                @if ($item->file_eselon != NULL)
+                                <a href="{{ asset('storage/'.$item->file_eselon) }}" target="_blank" class="btn btn-primary btn-sm">Eselon</a>
+                                @endif
+                                @if ($item->file_pusdiklat != NULL)
+                                <a href="{{ asset('storage/'.$item->file_pusdiklat) }}" target="_blank" class="btn btn-primary btn-sm">Pusdiklat</a>
+                                @endif
+                                @if ($item->file_kampusln != NULL)
+                                <a href="{{ asset('storage/'.$item->file_kampusln) }}" target="_blank" class="btn btn-primary btn-sm">KampusLN</a>
+                                @endif
+                                @if ($item->file_kuasa != NULL)
+                                <a href="{{ asset('storage/'.$item->file_kuasa) }}" target="_blank" class="btn btn-primary btn-sm">Kuasa</a>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="/admin/daftar_permohonan/{{ $item->id }}" class="btn btn-primary">Aksi</a>
+                            </td>
+
+
+
+                        </tr>
+                        @endforeach
+
+                        <!-- <tr>
                             <td>Dwy Bagus</td>
                             <td>2010</td>
                             <td>Komputasi Statistik</td>
                             <td>15 September 2022</td>
                             <td>Ijazah</td>
                             <td>
-                                <!-- Warnanya berbeda sesuai status pengajuan legalisir -->
+
                                 <div class="p-2 bg-secondary text-light rounded">Pengajuan</div>
                             </td>
                             <td>
@@ -106,7 +149,7 @@
                                     <span class="text">Aksi</span>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

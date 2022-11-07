@@ -14,16 +14,24 @@ class FormulirController extends Controller
     //
     public function index()
     {
-        return view('formulir');
+        return view('formulir_ijazah');
+    }
+
+    public function indexTrans()
+    {
+        return view('formulir_transkrip');
     }
 
     public function store(Request $request)
     {
         $validate = $request->validate([
             'user_id' => '',
-            'file_permohonan' => 'required|mimes:pdf',
-            'file_eselon' => 'required|mimes:pdf',
-            'file_pusdiklat' => 'required|mimes:pdf',
+            'jenis' => 'required',
+            'file_permohonan' => 'mimes:pdf', //required or not?
+            'file_eselon' => 'mimes:pdf', //required or not?
+            'file_pusdiklat' => 'mimes:pdf', //required or not?
+            'file_kampusln' => 'mimes:pdf', //required or not?
+            'file_kuasa' => 'mimes:pdf', //required or not?
             'pengambilan' => 'required',
             'alamat_pengambilan' => 'nullable',
             'email_pengambilan' => 'nullable',
@@ -32,8 +40,23 @@ class FormulirController extends Controller
 
         $validate['user_id'] = Auth::user()->id;
         $validate['file_permohonan'] = $request->file('file_permohonan')->store('permohonan');
-        $validate['file_eselon'] = $request->file('file_eselon')->store('eselon');
-        $validate['file_pusdiklat'] = $request->file('file_pusdiklat')->store('pusdiklat');
+        if ($request->file('file_eselon')) {
+            $validate['file_eselon'] = $request->file('file_eselon')->store('permohonan');
+        }
+        if ($request->file('file_pusdiklat')) {
+            $validate['file_pusdiklat'] = $request->file('file_pusdiklat')->store('permohonan');
+        }
+        if ($request->file('file_kampusln')) {
+            $validate['file_kampusln'] = $request->file('file_kampusln')->store('permohonan');
+        }
+        if ($request->file('file_kuasa')) {
+            $validate['file_kuasa'] = $request->file('file_kuasa')->store('permohonan');
+        }
+
+        // $validate['file_eselon'] = $request->file('file_eselon')->store('eselon');
+        // $validate['file_pusdiklat'] = $request->file('file_pusdiklat')->store('pusdiklat');
+        // $validate['file_kampusln'] = $request->file('file_kampusln')->store('kampusln');
+        // $validate['file_kuasa'] = $request->file('file_kuasa')->store('kuasa');
         $validate['status'] = 1;
 
         Permohonan::create($validate);

@@ -13,9 +13,12 @@ class Permohonan extends Model
 
     protected $fillable = [
         'user_id',
+        'jenis',
         'file_permohonan',
         'file_eselon',
         'file_pusdiklat',
+        'file_kampusln',
+        'file_kuasa',
         'pengambilan',
         'alamat_pengambilan',
         'email_pengambilan',

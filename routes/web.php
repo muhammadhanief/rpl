@@ -73,7 +73,8 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
 // formulir
-Route::get('/formulir', 'FormulirController@index')->name('formulir');
+Route::get('/formulir/ijazah', 'FormulirController@index')->name('formulir.ijazah');
+Route::get('/formulir/transkrip', 'FormulirController@indexTrans')->name('formulir.transkrip');
 Route::post('/formulir', 'FormulirController@store')->name('formulir.store');
 
 // daftar permohonan

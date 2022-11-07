@@ -6,7 +6,7 @@
 
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Formulir Pengajuan') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Formulir Pengajuan Legalisir Transkrip Nilai') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -20,6 +20,16 @@
 @if (session('status'))
 <div class="alert alert-success border-left-success" role="alert">
     {{ session('status') }}
+</div>
+@endif
+
+@if ($errors->any())
+<div class="alert alert-danger border-left-danger" role="alert">
+    <ul style="margin-bottom: 0px;">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
 </div>
 @endif
 
@@ -95,7 +105,8 @@
                             <span class="text">Unduh Contoh</span>
                         </a>
                     </p>
-                    <input class="form-control" type="file" id="formFile" name="file_permohonan"> <br>
+                    <input class="form-control" type="file" id="formFile" name="file_permohonan">
+                    <br>
                     <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
                     <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Eselon II
                         <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
@@ -105,7 +116,8 @@
                             <span class="text">Unduh Contoh</span>
                         </a>
                     </p>
-                    <input class="form-control" type="file" id="formFile" name="file_eselon"> <br>
+                    <input class="form-control" type="file" id="formFile" name="file_eselon">
+                    <br>
                     <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
                         <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
                             <span class="icon text-light">
@@ -114,19 +126,31 @@
                             <span class="text">Unduh Contoh</span>
                         </a>
                     </p>
-                    <input class="form-control" type="file" id="formFile" name="file_pusdiklat"> <br>
+                    <input class="form-control" type="file" id="formFile" name="file_pusdiklat">
+                    <br>
 
                     <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
-                    <!-- <b>Dokumen Bahasa Inggris</b> (Opsional)<br>
-                                    <p>Bukti Pendaftaran Kampus Luar Negeri
-                                        <input class="form-control" type="file" id="formFile">
-                                    </p> -->
+                    @if ((date('Y') - Auth::user()->tahunLulus) > 4)
+                    <b>Dokumen Bahasa Inggris</b> (Opsional)<br>
+                    <p class="ms-auto">Bukti Pendaftaran Kampus Luar Negeri</p>
+                    <input class="form-control" type="file" id="formFile" name="file_kampusln">
+                    <br>
+                    @endif
 
                     <!-- Hanya untuk Diambil langsung oleh Orang lain -->
-                    <!-- <p>Surat Kuasa<br>
-                                        <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx">Unduh</a>
-                                        <input class="form-control" type="file" id="formFile">
-                                    </p> -->
+                    <div id="surat_kuasa">
+                        <p class="ms-auto">Surat Kuasa
+                            <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                                <span class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span>
+                            </a>
+                        </p>
+                        <input class="form-control" type="file" id="formFile" name="file_kuasa">
+                        <br>
+                    </div>
+
                     <p>Metode Pengambilan</p>
 
                     <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
@@ -147,7 +171,7 @@
                     <div id="alamat-pengiriman">
                         <p>Alamat Pengiriman</p>
                         <div class="input-group">
-                            <input name="alamat_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="alamat_pengambilan" name=" alamat_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
 
@@ -155,10 +179,14 @@
                     <div id="email-pengiriman">
                         <p>Email</p>
                         <div class="input-group">
-                            <input name="email_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            <input id="email_pengambilan" name="email_pengambilan" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <br>
+
+                    <!-- Hiden value jenis permohonan -->
+                    <input type="hidden" name="jenis" value="transkrip">
+
                     <div>
                         <div class=" d-flex justify-content-end">
                             <button type="submit" class="btn btn-success">
@@ -174,18 +202,31 @@
                     <script>
                         $(document).ready(function() {
                             $("#alamat-pengiriman").hide();
+                            $("#email_pengambilan").attr('required', true);
+                            $("#surat_kuasa").hide();
                         });
                         $('#metodePengambilan').change(function() {
                             val = $(this).val();
-                            if (val == 4) {
-                                $("#alamat-pengiriman").show();
-                                $("#email-pengiriman").hide();
-                            } else if (val == 1) {
+                            if (val == 1) {
                                 $("#alamat-pengiriman").hide();
+                                $("#alamat_pengambilan").removeAttr("required");
                                 $("#email-pengiriman").show();
-                            } else {
+                                $("#email_pengambilan").attr("required", true);
+                                $("#surat_kuasa").hide();
+                            } else if (val == 2) {
                                 $("#alamat-pengiriman").hide();
+                                $("#alamat_pengambilan").removeAttr("required");
                                 $("#email-pengiriman").hide();
+                                $("#email_pengambilan").removeAttr("required");
+                                $("#surat_kuasa").hide();
+                            } else if (val == 3) {
+                                $("#surat_kuasa").show();
+                            } else if (val == 4) {
+                                $("#alamat-pengiriman").show();
+                                $("#alamat_pengambilan").attr("required", true);
+                                $("#email-pengiriman").hide();
+                                $("#email_pengambilan").removeAttr("required");
+                                $("#surat_kuasa").hide();
                             }
                         });
                     </script>

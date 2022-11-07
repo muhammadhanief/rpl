@@ -16,9 +16,12 @@ return new class extends Migration
         Schema::create('permohonan', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('file_permohonan');
-            $table->string('file_eselon');
-            $table->string('file_pusdiklat');
+            $table->string('jenis');
+            $table->string('file_permohonan')->nullable();
+            $table->string('file_eselon')->nullable();
+            $table->string('file_pusdiklat')->nullable();
+            $table->string('file_kampusln')->nullable();
+            $table->string('file_kuasa')->nullable();
             $table->enum('pengambilan', ['1', '2', '3', '4']);
             $table->string('alamat_pengambilan')->nullable();
             $table->string('email_pengambilan')->nullable();
