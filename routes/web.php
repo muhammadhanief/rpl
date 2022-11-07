@@ -74,6 +74,7 @@ Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
 // formulir
 Route::get('/formulir', 'FormulirController@index')->name('formulir');
+Route::post('/formulir', 'FormulirController@store')->name('formulir.store');
 
 // admin yang table
 Route::get('/admin', 'AdminController@index')->name('admin');

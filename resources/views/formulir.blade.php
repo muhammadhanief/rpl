@@ -24,7 +24,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <form>
+    <form action="/formulir" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="row">
 
             <div class="col-lg-6">
@@ -69,36 +70,106 @@
                                 <th>{{ Auth::user()->tahunLulus }}</th>
                             </tr>
                         </table>
-                        <p>Metode Pengambilan</p>
-                        <div class="form-group">
-                            <select id="metodePengambilan" name="metodePengambilan" class="form-select form-control bg-light border-0 small">
-                                <option value="1">Diemail ke alamat pemohon dalam bentuk hasil scan</option>
-                                <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
-                                <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
-                                </option>
-                                <option value="4">Dikirimkan via pos</option>
 
-                            </select>
-                            <!-- <input type="text" class="form-control form-control-user" name="jurusan"
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Lampiran Dokumen</h6>
+                    </div>
+                    <div class="card-body">
+                        <!-- Wajib -->
+
+                        <b>Dokumen Wajib</b><br>
+                        <br>
+                        <p class="ms-auto">Surat Permohonan Legalisir
+                            <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                                <span class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span>
+                            </a>
+                        </p>
+                        <input class="form-control" type="file" id="formFile" name="file_permintaan"> <br>
+                        <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
+                        <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Eselon II
+                            <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                                <span class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span>
+                            </a>
+                        </p>
+                        <input class="form-control" type="file" id="formFile" name="file_eselon"> <br>
+                        <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
+                            <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
+                                <span class="icon text-light">
+                                    <i class='fas fa-download'></i>
+                                </span>
+                                <span class="text">Unduh Contoh</span>
+                            </a>
+                        </p>
+                        <input class="form-control" type="file" id="formFile" name="file_pusdiklat"> <br>
+
+                        <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
+                        <!-- <b>Dokumen Bahasa Inggris</b> (Opsional)<br>
+                                    <p>Bukti Pendaftaran Kampus Luar Negeri
+                                        <input class="form-control" type="file" id="formFile">
+                                    </p> -->
+
+                        <!-- Hanya untuk Diambil langsung oleh Orang lain -->
+                        <!-- <p>Surat Kuasa<br>
+                                        <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx">Unduh</a>
+                                        <input class="form-control" type="file" id="formFile">
+                                    </p> -->
+                        <p>Metode Pengambilan</p>
+
+                        <select id="metodePengambilan" name="pengambilan" class="form-select form-control bg-light border-0 small">
+                            <option value="1">Diemail ke alamat pemohon dalam bentuk hasil scan</option>
+                            <option value="2">Diambil di kampus Polstat STIS langsung oleh pemohon</option>
+                            <option value="3">Diambil di kampus Polstat STIS oleh orang lain yang telah diberi kuasa
+                            </option>
+                            <option value="4">Dikirimkan via pos</option>
+
+                        </select>
+                        <!-- <input type="text" class="form-control form-control-user" name="jurusan"
                                             placeholder="{{ __('Jurusan') }}" value="{{ old('jurusan') }}" required
                                             autofocus> -->
+
+                        <br>
+
+                        <!-- Jika opsi yang dipilih nomer 4 -->
+                        <div id="alamat-pengiriman">
+                            <p>Alamat Pengiriman</p>
+                            <div class="input-group">
+                                <input name="alamat" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
+                            </div>
                         </div>
 
-                        <form class="navbar-search">
-                            <!-- Jika opsi yang dipilih nomer 4 -->
-                            <div id="alamat-pengiriman"> Alamat Pengiriman
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2" required>
-                                </div>
+                        <!-- Jika opsi yang dipilih nomer 1 -->
+                        <div id="email-pengiriman">
+                            <p>Email</p>
+                            <div class="input-group">
+                                <input name="email" type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2">
                             </div>
-
-                            <!-- Jika opsi yang dipilih nomer 1 -->
-                            <div id="email-pengiriman"> Email
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="" aria-label="Search" aria-describedby="basic-addon2" required>
-                                </div>
+                        </div>
+                        <br>
+                        <div>
+                            <div class=" d-flex justify-content-end">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-check"></i>&nbsp;Kirim
+                                </button> &nbsp;
+                                <button type="reset" class="btn btn-danger">
+                                    <i class="fa fa-times"></i>&nbsp;Batal
+                                </button>
                             </div>
-                        </form>
+                        </div>
                         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
                         <script>
@@ -119,73 +190,6 @@
                                 }
                             });
                         </script>
-                    </div>
-
-                </div>
-
-                <div class="card shadow mb-4">
-                    <div class="card-header d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success">
-                            <i class="fas fa-check"></i>&nbsp;Kirim
-                        </button> &nbsp;
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa fa-times"></i>&nbsp;Batal
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Lampiran Dokumen</h6>
-                    </div>
-                    <div class="card-body">
-                        <!-- Wajib -->
-                        <b>Dokumen Wajib</b><br>
-                        <br>
-                        <p class="ms-auto">Surat Permohonan Legalisir
-                            <a href="http://stis.ac.id/media/source/1.%20surat%20permohonan%20legalisir.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
-                                <span class="icon text-light">
-                                    <i class='fas fa-download'></i>
-                                </span>
-                                <span class="text">Unduh Contoh</span>
-                            </a>
-                        </p>
-                        <input class="form-control" type="file" id="formFile"> <br>
-                        <!-- Hanya untuk legalisir Transkrip nilai < 4 tahun -->
-                        <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Eselon II
-                            <a href="http://stis.ac.id/media/source/2.%20permohonan%20ijin%20belajar%20%20(eselon%202).pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
-                                <span class="icon text-light">
-                                    <i class='fas fa-download'></i>
-                                </span>
-                                <span class="text">Unduh Contoh</span>
-                            </a>
-                        </p>
-                        <input class="form-control" type="file" id="formFile"> <br>
-                        <p class="ms-auto">Surat Permohonan Izin Belajar yang Disetujui oleh Kepala Pusdiklat
-                            <a href="http://stis.ac.id/media/source/3.%20surat%20ijin%20belajar%20dari%20pusdiklat.pdf" target=”_blank” class="btn btn-sm btn-primary btn-icon-split" aria-hidden="true">
-                                <span class="icon text-light">
-                                    <i class='fas fa-download'></i>
-                                </span>
-                                <span class="text">Unduh Contoh</span>
-                            </a>
-                        </p>
-                        <input class="form-control" type="file" id="formFile"> <br>
-
-                        <!-- Hanya untuk legalisir Ijazah atau Transkrip > 4 tahun -->
-                        <!-- <b>Dokumen Bahasa Inggris</b> (Opsional)<br>
-                                    <p>Bukti Pendaftaran Kampus Luar Negeri
-                                        <input class="form-control" type="file" id="formFile">
-                                    </p> -->
-
-                        <!-- Hanya untuk Diambil langsung oleh Orang lain -->
-                        <!-- <p>Surat Kuasa<br>
-                                        <a href="http://stis.ac.id/media/source/4.%20surat%20kuasa%20legalisir.docx">Unduh</a>
-                                        <input class="form-control" type="file" id="formFile">
-                                    </p> -->
-                        </p>
                     </div>
                 </div>
 
