@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('permintaan', function (Blueprint $table) {
+        Schema::create('permohonan', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('permohonan_path');
-            $table->string('eselon_path');
-            $table->string('kepala_pusdiklat_path');
-            $table->string('pengambilan');
+            $table->string('file_permohonan');
+            $table->string('file_eselon');
+            $table->string('file_pusdiklat');
+            $table->enum('pengambilan', ['1', '2', '3', '4']);
             $table->string('alamat_pengambilan')->nullable();
             $table->string('email_pengambilan')->nullable();
-            $table->string('status');
+            $table->string('status'); // status pakai enum
             $table->timestamps();
         });
     }
