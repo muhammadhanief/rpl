@@ -19,6 +19,8 @@ class FormulirController extends Controller
 
     public function store(Request $request)
     {
+        // blum ada validasi
+
         // $this->validate($request, [
         //     'file_perminataan' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048',
         //     'file_eselon' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048',
@@ -33,9 +35,9 @@ class FormulirController extends Controller
         $nama_file_eselon = time() . "_" . $file_eselon->getClientOriginalName();
         $nama_file_pusdiklat = time() . "_" . $file_pusdiklat->getClientOriginalName();
 
-        $path_permintaan = 'data_file/permintaan';
-        $path_eselon = 'data_file/eselon';
-        $path_pusdiklat = 'data_file/pusdiklat';
+        $path_permintaan = 'permintaan/permintaan';
+        $path_eselon = 'permintaan/eselon';
+        $path_pusdiklat = 'permintaan/pusdiklat';
 
         $file_permintaan->move($path_permintaan, $nama_file_permintaan);
         $file_eselon->move($path_eselon, $nama_file_eselon);
