@@ -200,6 +200,8 @@
                                 $("#surat_kuasa").hide();
                             } else if (val == 3) {
                                 $("#surat_kuasa").show();
+                                $("#alamat-pengiriman").hide();
+                                $("#email-pengiriman").hide();
                             } else if (val == 4) {
                                 $("#alamat-pengiriman").show();
                                 $("#alamat_pengambilan").attr("required", true);

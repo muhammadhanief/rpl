@@ -65,19 +65,19 @@
                             </td>
                             <td>
                                 @if ($item->file_permohonan != NULL)
-                                <a href="{{ asset('storage/'.$item->file_permohonan) }}" target="_blank" class="btn btn-primary btn-sm">Permohonan</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_permohonan) }}`);">Permohonan</a>
                                 @endif
                                 @if ($item->file_eselon != NULL)
-                                <a href="{{ asset('storage/'.$item->file_eselon) }}" target="_blank" class="btn btn-primary btn-sm">Eselon</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_eselon) }}`);">Eselon</a>
                                 @endif
                                 @if ($item->file_pusdiklat != NULL)
-                                <a href="{{ asset('storage/'.$item->file_pusdiklat) }}" target="_blank" class="btn btn-primary btn-sm">Pusdiklat</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_pusdiklat) }}`);">Pusdiklat</a>
                                 @endif
                                 @if ($item->file_kampusln != NULL)
-                                <a href="{{ asset('storage/'.$item->file_kampusln) }}" target="_blank" class="btn btn-primary btn-sm">KampusLN</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_kampusln) }}`);">KampusLN</a>
                                 @endif
                                 @if ($item->file_kuasa != NULL)
-                                <a href="{{ asset('storage/'.$item->file_kuasa) }}" target="_blank" class="btn btn-primary btn-sm">Kuasa</a>
+                                <a class="btn btn-primary btn-sm" onclick="openModalPDF(`{{ asset('storage/'.$item->file_file_kuasa) }}`);">Kuasa</a>
                                 @endif
                             </td>
                             <td>
@@ -151,12 +151,55 @@
                             </td>
                         </tr> -->
                     </tbody>
+
                 </table>
+
+                <!-- @foreach ($data as $item) -->
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-xl">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal Header</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+
+                                <embed id="modalpdf" src="" frameborder="0" width="100%" height="720px">
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- @endforeach -->
+
+
+
             </div>
         </div>
     </div>
 
 </div>
+<script>
+    // function sleep(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
+
+    async function openModalPDF(source) {
+        // wait after src changed then show modal
+        $('#modalpdf').attr('src', source);
+        // await sleep(1 * 1000);
+        $('#myModal').modal('show');
+    }
+</script>
 <!-- /.container-fluid -->
 
 @endsection
